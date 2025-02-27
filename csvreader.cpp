@@ -19,7 +19,7 @@ std::vector<music> CsvReader::readAll()
         std::string line;
         std::getline(fin, line);
 
-        mus c;
+        music c;
         int k = 0;
         std::string token;
 
