@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     if (reader.is_open()) {
         std::vector<music> mus = reader.readAll();
 
-        for (const auto& c: books) {
+        for (const auto& c: mus) {
             ui->textBrowser->append(QString::fromStdString(c.name()) + " " + QString::fromStdString(c.author())+ " " + QString::number(c.year()) + " " + QString::number(c.proslushivanie()));
         }
     } else {
