@@ -11,7 +11,7 @@ class CsvReader
 public:
     CsvReader(const std::string& filename);
     bool is_open() const;
-    std::vector<music> readAll();
+    std::vector<music> readALL();
 
 private:
     std::ifstream fin;
