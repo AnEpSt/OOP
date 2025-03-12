@@ -12,26 +12,19 @@ private:
     std::string favorit_;
     int proslushivanie_;
 public:
-    music() { //констрктор по умолчанию (НУ)
+    music() {
         name_ = "-";
         author_ = "Unknown";
         year_ = 2024;
         favorit_ = "not favorit";
         proslushivanie_ = 1;
     }
-    music(const std::string& name) { //констрктор по имени
+    music(const std::string& name, int year, int proslushivanie, const std::string& author) {
         name_ = name;
-        author_ = "Unknown";
-        year_ = 2024;
-        favorit_ = "not favorit";
-        proslushivanie_ = 1;
-    }
-    music(int year) { //констрктор по имени
-        name_ = "-";
-        author_ = "Unknown";
+        author_ = author;
         year_ = year;
         favorit_ = "not favorit";
-        proslushivanie_ = 1;
+        proslushivanie_ = proslushivanie;
     }
     //setter
     void setName(const std::string& name) {
@@ -61,14 +54,6 @@ public:
     }
     int proslushivanie() const {
         return proslushivanie_;
-    }
-    void print() const {
-        std::cout << "Name: " << name_ << std::endl
-            << "Author: " << author_ << std::endl
-            << "Year: " << year_ << std::endl
-            << "Favorit " << favorit_ << std::endl
-            << "Proslushivanie " << proslushivanie_ << std::endl;
-
     }
 };
 
