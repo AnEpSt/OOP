@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "music.h"
+#include "remix.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -11,6 +12,7 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
+
     Q_OBJECT
 
 public:
@@ -23,6 +25,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    std::vector<remix> vec;
 };
 
 #endif // MAINWINDOW_H
