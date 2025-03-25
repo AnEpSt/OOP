@@ -6,25 +6,18 @@
 #include <ctime>
 class music {
 private:
-    std::string name_;
-    std::string author_;
-    int year_;
-    std::string favorit_;
-    int proslushivanie_;
+    std::string name_ = "-";
+    std::string author_= "Unknown";
+    int year_ = 2024;
+    std::string favorit_ = "not favorit";
+    int proslushivanie_ = 1;
 public:
-    music() {
-        name_ = "-";
-        author_ = "Unknown";
-        year_ = 2024;
-        favorit_ = "not favorit";
-        proslushivanie_ = 1;
+    music () = default;
+    music(const std::string& name,const std::string& author, int year, int proslushivanie): name_(name),author_(author),year_(year), proslushivanie_(proslushivanie){
     }
-    music(const std::string& name, int year, int proslushivanie, const std::string& author) {
+
+    music(const std::string& name) {
         name_ = name;
-        author_ = author;
-        year_ = year;
-        favorit_ = "not favorit";
-        proslushivanie_ = proslushivanie;
     }
     //setter
     void setName(const std::string& name) {
