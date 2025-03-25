@@ -10,7 +10,7 @@ class JsonReader : public AbstractReader
 private: 
   std::fstream fin;
 public:
-  CsvReader(const std::string& filename);
+  JsonReader(const std::string& filename);
   bool is_open() const override;
   std::vector<music> readALL() override;
 };
