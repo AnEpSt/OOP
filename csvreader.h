@@ -6,12 +6,12 @@
 #include "music.h"
 #include <fstream>
 
-class CsvReader
+class CsvReader: public AbstractReader
 {
 public:
     CsvReader(const std::string& filename);
-    bool is_open() const;
-    std::vector<music> readALL();
+    bool is_open() const override;
+    std::vector<music> readALL() override;
 
 private:
     std::ifstream fin;
