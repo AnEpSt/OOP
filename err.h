@@ -10,7 +10,7 @@ class err:public exception{
         err() = default
         err(const std::string& mes, int srt_err): err_message(mes), str_numb(srt_err){
             const char* what() const noexcept override {
-                    return message.c_str();
+                    return err_message.c_str();
                     }
         }
 };
