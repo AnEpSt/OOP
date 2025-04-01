@@ -2,16 +2,17 @@
 #define JSONREADER_H
 #include "abstractreader.h"
 #include <fstream>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
+#include "remix.h"
 
 using json =  nlohmann::json;
 class JsonReader : public AbstractReader
 {
-private: 
-  std::fstream fin;
+private:
+    std::fstream fin;
 public:
-  JsonReader(const std::string& filename);
-  bool is_open() const override;
-  std::vector<music> readALL() override;
+    JsonReader(const std::string& filename);
+    bool is_open() const override;
+    std::vector<remix> readALL() override;
 };
 #endif // JSONREADER_H
