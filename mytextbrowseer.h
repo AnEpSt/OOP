@@ -1,10 +1,12 @@
-#ifndef MYTEXTBROWSEER_H
-#define MYTEXTBROWSEER_H
-
-class MytextBrowseer
-{
+#ifndef MYTEXTBROWSER_H
+#define MYTEXTBROWSER_H
+#include <QTextBrowser>
+#include "remix.h"
+class MyTextbrowser: public QTextBrowser{
+    Q_OBJECT
 public:
-    MytextBrowseer();
+    MyTextbrowser(QWidget *parrent);
+    void appendmusic(const remix& m);
 };
 
-#endif // MYTEXTBROWSEER_H
+#endif // MYTEXTBROWSER_
