@@ -8,9 +8,12 @@ class err:public exception{
         int str_numb = 0;
     public: 
         err() = default
-        err(const std::string& mes, int numb): err_message(mes), str_numb(numb){}
-
-
-
-
+        err(const std::string& mes, int numb): err_message(mes), str_numb(numb){
+            const char* what() const noexcept override {
+                    return message.c_str();
+                    }
+        }
+        int srt_err(){
+            retunr str_numb;
+}
 }
