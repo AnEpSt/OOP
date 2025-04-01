@@ -35,24 +35,24 @@ std::vector<remix> CsvReader::readALL()
                     try{
                          int year = std::stoi(token);
                          if (year >2025){
-                             throw std::invalid_argument("Введен неправильный год");
+                             throw err("Не возможный год", 36)
                          }
                               c.setYear(year);
                     }
-                    catch (const std::exception& ex){
-                        std::cout <<"Ошибка года" << ex.what() << std::endl;
+                    catch (const std::err& e){
+                        std::cout <<e.what() <<"Строка"<< ex.str_err() << std::endl;
                     }
                     break;
                 case 3:
                     try{
                          int prosl = std::stoi(token);
                          if (prosl <0){
-                             throw std::invalid_argument("Невозможное кол-во прослушиваний");
+                             throw err("Не возможное кол-во прослушиваний", 48)
                          }
                               c.setprosl(prosl);
                     }
-                    catch (const std::exception& ex){
-                        std::cout <<"Ошибка прослушиваний" << ex.what() << std::endl;
+                    catch (const std::err& e){
+                        std::cout <<e.what() <<"Строка"<< ex.str_err() << std::endl;
                     }
                     break;
                 case 4: c.setgenre(token); break;
