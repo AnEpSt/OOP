@@ -5,10 +5,10 @@
 #include "remix.h"
 
 class AbstractReader {
-public: 
+public:
     virtual ~AbstractReader(){}
-    virtual std::vector<remix> readALL = 0;
-    virtual bool is_open const=0;
-}
+    virtual std::vector<remix> readALL() = 0;
+    virtual bool is_open() const=0;
+};
 
 #endif // ABSTRACTREADER_H
