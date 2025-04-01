@@ -3,13 +3,13 @@
 
 #include <fstream>
 #include "music.h"
-
+#include "remix.h"
 class CsvWriter
 {
 public:
     CsvWriter(const std::string& filename);
     bool is_open() const;
-    void write(const music& m);
+    void write(const remix& m);
 
 private:
     std::ofstream fout;
