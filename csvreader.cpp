@@ -31,8 +31,30 @@ std::vector<remix> CsvReader::readALL()
                 switch(k) {
                 case 0: c.setName(token); break;
                 case 1: c.setAuthor(token); break;
-                case 2: c.setYear(std::stoi(token)); break;
-                case 3: c.setprosl(std::stoi(token)); break;
+                case 2: 
+                    try{
+                         int year = std::stoi(token);
+                         if (year >2025){
+                             throw std::invalid_argument("Введен неправильный год");
+                         }
+                              c.setYear(year);
+                    }
+                    catch (const std::exception& ex){
+                        std::cout <<"Ошибка года" << ex.what() << std::endl;
+                    }
+                    break;
+                case 3:
+                    try{
+                         int prosl = std::stoi(token);
+                         if (prosl <0){
+                             throw std::invalid_argument("Невозможное кол-во прослушиваний");
+                         }
+                              c.setprosl(prosl);
+                    }
+                    catch (const std::exception& ex){
+                        std::cout <<"Ошибка прослушиваний" << ex.what() << std::endl;
+                    }
+                    break;
                 case 4: c.setgenre(token); break;
                 case 5: c.setfeat(token); break;
                 }
