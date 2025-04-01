@@ -1,33 +1,64 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "csvreader.h"
+#include "jsonreader.h"
 #include "csvwriter.h"
 #include "MyTextbrowser.h"
+#include <QFileDialog>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    LoadData();
+    //LoadData();
 }
-    //ui->textBrowser->append("Hello QT");
- void MainWindow::LoadData(){
-     ui->textBrowser->clear();
-    CsvReader reader("music.csv");// open file
-    if (reader.is_open()){
-        vec = reader.readALL();
-        for (const auto& m:vec){
-            ui->textBrowser->appendmusic(m);
-        }
-        }
-    else{
-        ui->textBrowser->append("Ошибка при открытии файла");
-    }
-    }
+//ui->textBrowser->append("Hello QT");
+void MainWindow::LoadData(){
+    // ui->textBrowser->clear();
+    // CsvReader reader("music.csv");// open file
+    // if (reader.is_open()){
+    //     vec = reader.readALL();
+    //     for (const auto& m:vec){
+    //         ui->textBrowser->appendmusic(m);
+    //     }
+    // }
+    // else{
+    //     ui->textBrowser->append("Ошибка при открытии файла");
+    // }
+    // JsonReader jsreader("music.json");// open file
+    // if (jsreader.is_open()){
+    //     vec = jsreader.readALL();
+    //     for (const auto& m:vec){
+    //         ui->textBrowser->appendmusic(m);
+    //     }
+    // }
+    // else{
+    //     ui->textBrowser->append("Ошибка при открытии файла");
+    // }
+}
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+void MainWindow::chten(AbstractReader& rd){
+    // ui->textBrowser->clear();
+    // if (rd_ch == "CsvReader"){
+    //     CsvReader reader("music.csv");// open file
+    // }
+    // if (rd_ch == "JsonReader"){
+    //     JsonReader reader("music.json");// open file
+    // }
+    if (rd.is_open()){
+        vec = rd.readALL();
+        for (const auto& m:vec){
+            ui->textBrowser->appendmusic(m);
+        }
+    }
+    else{
+        ui->textBrowser->append("Ошибка при открытии файла");
+    }
 }
 void MainWindow::add(){
     CsvWriter writer("music.csv");
@@ -43,7 +74,24 @@ void MainWindow::add(){
         remix m(name.toStdString(),genre.toStdString(),feat.toStdString());
 
         writer.write(m);
-//LoadData();
+        //LoadData();
         ui->textBrowser->appendmusic(m);
+    }
+
+
 }
+ void MainWindow::choose(){
+     QString filename;
+     filename = QFileDialog::getOpenFileName(this,tr("Open Image"), "/home/jana", tr("Image Files (*.csv *.json)"));
+     if (filename.endsWith(".csv", Qt::CaseInsensitive)){
+         ui->textBrowser->clear();
+         CsvReader reader("music.csv");// open file
+         chten(reader);
+     }
+     if (filename.endsWith(".json", Qt::CaseInsensitive)){
+        ui->textBrowser->clear();
+        JsonReader jsreader("music.json");// open file
+        chten(jsreader);
 }
+ }
+
