@@ -13,4 +13,5 @@ class err:public exception{
                     return message.c_str();
                     }
         }
-}
+};
+#endif
