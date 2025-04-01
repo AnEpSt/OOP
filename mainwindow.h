@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "music.h"
 #include "remix.h"
+#include "abstractreader.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,6 +23,8 @@ public:
 private slots:
     void add();
     void LoadData();
+    void choose();
+    void chten(AbstractReader& rd);
 
 private:
     Ui::MainWindow *ui;
