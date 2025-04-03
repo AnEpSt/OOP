@@ -7,11 +7,11 @@ class err:public exception{
         std::string err_message ="Исключений не обнаружено";
         int str_numb = 0;
     public: 
-        err() = default
-        err(const std::string& mes, int srt_err): err_message(mes), str_numb(srt_err){
-            const char* what() const noexcept override {
-                    return err_message.c_str();
-                    }
+        err() = default;
+        err(const std::string& mes, int str_err): err_message(mes), str_numb(str_err){}
+
+        const char* what() const noexcept override {
+              return err_message.c_str();
         }
 };
 #endif
