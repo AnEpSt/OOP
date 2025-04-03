@@ -11,6 +11,7 @@ class err:public exception{
         err(const std::string& mes, int str_err): err_message(mes), str_numb(str_err){}
 
         const char* what() const noexcept override {
+              formatted_message = "\033[31m" + err_message + " (Строка " + std::to_string(str_numb) + ")\033[0m";
               return err_message.c_str();
         }
 };
