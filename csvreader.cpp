@@ -1,6 +1,6 @@
 #include "csvreader.h"
 #include <fstream>
-
+#include "err.h"
 CsvReader::CsvReader(const std::string& filename)
 {
     fin.open(filename);
@@ -35,11 +35,11 @@ std::vector<remix> CsvReader::readALL()
                     try{
                          int year = std::stoi(token);
                          if (year >2025){
-                             throw err("Не возможный год", 36)
+                             throw err("Не возможный год", 36);
                          }
                               c.setYear(year);
                     }
-                    catch (const std::err& e){
+                    catch (const err& e){
                         std::cout <<e.what() <<"Строка"<< ex.str_err() << std::endl;
                     }
                     break;
@@ -47,12 +47,12 @@ std::vector<remix> CsvReader::readALL()
                     try{
                          int prosl = std::stoi(token);
                          if (prosl <0){
-                             throw err("Не возможное кол-во прослушиваний", 48)
+                             throw err("Не возможное кол-во прослушиваний", 48);
                          }
                               c.setprosl(prosl);
                     }
                     catch (const std::err& e){
-                        std::cout <<e.what() <<"Строка"<< ex.str_err() << std::endl;
+                        std::cout <<e.what() <<"Строка"<< e.str_err() << std::endl;
                     }
                     break;
                 case 4: c.setgenre(token); break;
