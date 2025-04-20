@@ -1,5 +1,5 @@
-#include 
-#include vector
+#include <iostream>
+#include <vector>
 template<typename T> T avg(T a, T b)
 {
     return (a + b)/2;
