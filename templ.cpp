@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-void print_vec(const std::vector<int>& vec){
+#include <complex>
+template<typename T> void print_vec(const std::vector<T>& vec){
   for (const auto& elem : vec) {
         std::cout << elem << " ";
     }
@@ -33,14 +34,15 @@ template<typename T> std::vector<T> plus(std::vector<T>& vec,T value){
 
 int main()
 {
-    std::vector vec= {5,79,13,158,466};
+    std::vector<std::float> vec= {5,79,13,158,466}; // вроде как std::complex с с++26
+    
     double x = avg(5, 4);
     // mult(vec,4545);
     std::cout<<x<<std::endl;
     
-    print_vec(mult(vec,796));
+    print_vec(mult(vec,359.22545));
     print_vec(inv(vec));
-    print_vec(plus(vec,798));
+    print_vec(plus(vec,348.56));
     
     // std::cout << std::endl;
     // std::cout<<res1 <<std::endl;
