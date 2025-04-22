@@ -34,7 +34,7 @@ template<typename T> std::vector<T> plus(std::vector<T>& vec,T value){
 
 int main()
 {
-    std::vector<std::float> vec= {5,79,13,158,466}; // вроде как std::complex с с++26
+    std::vector<double> vec= {5,79,13,158,466}; // вроде как std::complex с с++26
     
     double x = avg(5, 4);
     // mult(vec,4545);
