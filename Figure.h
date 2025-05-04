@@ -1,5 +1,7 @@
 #ifndef FIGURE_H
 #define FIGURE_H
+#include <QPainter>
+#include <QJsonObject>
 #include <vector>
 #include <string>
 #include "remix.h"
