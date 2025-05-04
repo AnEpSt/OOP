@@ -41,3 +41,34 @@ std::vector<remix> JsonReader::readALL(){
     // }
         return rem;
 }
+std::vector<std::unique_prt<Figure>> JsonReader::readALL(){
+    std::vector<std::unique_ptr<Figure>> figures;
+    
+    if (!is_open()) {
+        return figures;
+    }
+    try {
+        json j;
+        fin >> j;
+        for (const auto& e :j){
+            std::string type = e["type"].get<std::string>();
+            if (type == "circle"){
+                int x = e["X"].get<int>();
+                int y = e["Y"].get<int>();
+                int rad = e["rad"].get<float>();
+                figures.push_back(std::make_unique<Circle>(QPoint(x, y), rad));
+            }
+            else if (type == "rectangle") {
+                int x = e["X"].get<int>();
+                int y = e["Y"].get<int>();
+                int w = e["width"].get<float>();
+                int h = e["height"].get<float>();
+                figures.push_back(std::make_unique<Rectangle>(QRect(x, y, w, h)));
+            }
+        } 
+    }    
+    } catch (const json::exception& e) {
+        
+    }
+    return figures;
+}
