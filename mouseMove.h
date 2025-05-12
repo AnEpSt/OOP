@@ -5,7 +5,7 @@
 
 class mouseMove: public QWidget {
 public:
-    explicit MyWidget(QWidget* parent = nullptr);
+    explicit mouseMove(QWidget* parent = nullptr);
     virtual void mouseMoveEvent(QMouseEvent *event) override;
     virtual void mousePressEvent(QMouseEvent *event) override;
     virtual void mouseReleaseEvent(QMouseEvent *event) override;
